@@ -30,7 +30,7 @@ void _push(stack_t **element, unsigned int line)
 			exit(EXIT_FAILURE);
 		}
 	}
-	y = atoi(globv.arg);
+	x = atoi(globv.arg);
 	if (globv.info == 1)
 		add_dnodeint(element, y);
 	else
