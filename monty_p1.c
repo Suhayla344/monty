@@ -32,3 +32,22 @@ void _push(stack_t **element, unsigned int line)
 	else
 		add_dnodeint_end(element, y);
 }
+/**
+ * _pall - this function prints existing values in stack
+ * @element: this is head of linked list
+ * @line: line number
+ * Return: no return
+ */
+void _pall(stack_t **element, unsigned int line)
+{
+	stack_t *pp;
+	(void)line;
+
+	pp = *element;
+
+	while (pp)
+	{
+		printf("%d\n", pp->y);
+		pp = pp->next;
+	}
+}
