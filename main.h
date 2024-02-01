@@ -68,5 +68,7 @@ extern list_t globv;
 /*func_monty_p1.c*/
 void _push(stack_t **element, unsigned int line);
 void _pall(stack_t **element, unsigned int line);
-
+void free_globv(void);
+stack_t *add_dnodeint(stack_t **head, const int y);
+stack_t *add_dnodeint_end(stack_t **head, const int y);
 #endif
