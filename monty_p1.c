@@ -13,7 +13,7 @@ void _push(stack_t **element, unsigned int line)
 	{
 		dprintf(2, "L%u", line);
 		dprintf(2, "usage: push integer\n");
-		free_vglo();
+		free_globv();
 		exit(EXIT_FAILURE);
 	}
 	for (x = 0; globv.arg[x] != NULL; x++)
@@ -22,12 +22,12 @@ void _push(stack_t **element, unsigned int line)
 		{
 			dprintf(2, "L%u", line);
 			dprintf(2, "usage: push integer\n");
-			free_vglo();
+			free_globv();
 			exit(EXIT_FAILURE);
 		}
 	}
 	y = atoi(globv.arg);
-	if (globav.info == 1)
+	if (globv.info == 1)
 		add_dnodeint(element, y);
 	else
 		add_dnodeint_end(element, y);
@@ -47,7 +47,7 @@ void _pall(stack_t **element, unsigned int line)
 
 	while (pp)
 	{
-		printf("%d\n", pp->y);
-		pp = pp->next;
+		printf("%d\n", pp->n);
+		pp = pp ->next;
 	}
 }
