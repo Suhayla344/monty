@@ -1,3 +1,15 @@
+#ifndef MAIN_H
+#define MAIN_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <ctype.h>
+
+/*structions*/
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -28,4 +40,33 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct list - global struct to use in the func
+ * @info: is stack or queue
+ * @cont: current line
+ * @arg: second parameter inside the current line
+ * @head: deubly  linked list
+ * @pf: file descriptor
+ * @buff: input text
+ *
+ * Description: element linked list node struc
+ * for stack, queue, LIFO, FIFO
+*/
+typedef struct list
+{
+	int info;
+	unsigned int counter;
+	char *arg;
+	stack_t *head;
+	FILE *pf;
+	char *buff;
+} list_t;
 
+/*global value*/
+extern list_t globv;
+
+/*func_monty_p1.c*/
+void _push(stack_t **element, unsigned int line);
+void _pall(stack_t **element, unsigned int line);
+
+#endif
