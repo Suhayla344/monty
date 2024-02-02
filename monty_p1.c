@@ -1,40 +1,49 @@
 #include "monty.h"
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
- * _push - this function pushes element to the  stack
+ * push - this function pushes element to the  stack
  * @element: this is an element
  * @line: this is error line
  */
 
-void _push(stack_t **element, unsigned int line)
+void push(stack_t **element, unsigned int line)
 {
-	int x, y;
+	int n, i = 0, f	= 0;
 
-	if (!globv.arg)
+	if (globv.arg)
 	{
-		dprintf(2, "L%u", line);
-		dprintf(2, "usage: push integer\n");
-		free_globv();
-		exit(EXIT_FAILURE);
-	}
-	for (x = 0; globv.arg[x] != NULL; x++)
-	{
-		if (!isdigit(globv.arg[x]) && globv.arg[x] != '-')
+		if (globv.arg[0] == '-')
+			i++;
+		for (; globv.arg[0] != '\0'; i++)
 		{
-			dprintf(2, "L%u", line);
-			dprintf(2, "usage: push integer\n");
-			free_globv();
+			if (globv.arg[i] > 57 || globv.arg[i] < 48)
+				f = 1;
+		}
+		if (f == 1)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line);
+			fclose(globv.pf);
+			free(globv.buff);
+			free_stack(*element);
 			exit(EXIT_FAILURE);
 		}
 	}
-	y = atoi(globv.arg);
-	if (globv.info == 1)
-		add_dnodeint(element, y);
 	else
-		add_dnodeint_end(element, y);
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line);
+		fclose(globv.pf);
+		free(globv.buff);
+		free_stack(*element);
+		exit(EXIT_FAILURE);
+	}
+	n = atoi(globv.arg);
+	if (globv.info == 0)
+		add_dnodeint(element, n);
+	else
+		add_dnodeint_end(element, n);
 }
+
 /**
  * _pall - this function prints existing values in stack
  * @element: this is head of linked list
@@ -47,7 +56,8 @@ void _pall(stack_t **element, unsigned int line)
 	(void)line;
 
 	pp = *element;
-
+	if (pp == NULL)
+		return;
 	while (pp)
 	{
 		printf("%d\n", pp->n);
