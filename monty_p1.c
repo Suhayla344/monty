@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -30,7 +30,7 @@ void _push(stack_t **element, unsigned int line)
 			exit(EXIT_FAILURE);
 		}
 	}
-	x = atoi(globv.arg);
+	y = atoi(globv.arg);
 	if (globv.info == 1)
 		add_dnodeint(element, y);
 	else
