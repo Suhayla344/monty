@@ -43,7 +43,7 @@ typedef struct instruction_s
 /**
  * struct list - global struct to use in the func
  * @info: is stack or queue
- * @cont: current line
+ * @counter: current line
  * @arg: second parameter inside the current line
  * @head: deubly  linked list
  * @pf: file descriptor
