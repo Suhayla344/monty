@@ -7,7 +7,7 @@
  * @line: this is error line
  */
 
-void push(stack_t **element, unsigned int line)
+void push(stack_t **head, unsigned int line)
 {
 	int n, i = 0, f	= 0;
 
@@ -25,7 +25,7 @@ void push(stack_t **element, unsigned int line)
 			fprintf(stderr, "L%d: usage: push integer\n", line);
 			fclose(globv.pf);
 			free(globv.buff);
-			free_stack(*element);
+			free_globv(*head);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -34,14 +34,14 @@ void push(stack_t **element, unsigned int line)
 		fprintf(stderr, "L%d: usage: push integer\n", line);
 		fclose(globv.pf);
 		free(globv.buff);
-		free_stack(*element);
+		free_globv(*head);
 		exit(EXIT_FAILURE);
 	}
 	n = atoi(globv.arg);
 	if (globv.info == 0)
-		add_dnodeint(element, n);
+		add_dnodeint(head, n);
 	else
-		add_dnodeint_end(element, n);
+		add_dnodeint_end(head, n);
 }
 
 /**
@@ -50,17 +50,33 @@ void push(stack_t **element, unsigned int line)
  * @line: line number
  * Return: no return
  */
-void _pall(stack_t **element, unsigned int line)
+void _pall(stack_t **head, unsigned int line)
 {
 	stack_t *pp;
 	(void)line;
 
-	pp = *element;
+	pp = *head;
 	if (pp == NULL)
 		return;
 	while (pp)
 	{
 		printf("%d\n", pp->n);
 		pp = pp->next;
+	}
+}
+/**
+ * free_globv - this functions frees doubly linked list
+ * @head: this param is the head of the stack
+ */
+void free_globv(stack_t *head)
+{
+	stack_t *pp;
+
+	pp = head;
+	while (head)
+	{
+		pp = head->next;
+		free(head);
+		head = pp;
 	}
 }
