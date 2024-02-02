@@ -1,5 +1,9 @@
-#include "main.h"
+#include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
+ *
  * _push - this function pushes element to the  stack
  * @element: this is an element
  * @line: this is error line
@@ -11,8 +15,8 @@ void _push(stack_t **element, unsigned int line)
 
 	if (!globv.arg)
 	{
-		dprintf(2, "L%u", line);
-		dprintf(2, "usage: push integer\n");
+		dprintf(STDERR_FILENO, "L%u", line);
+		dprintf(STDERR_FILENO, "usage: push integer\n");
 		free_globv();
 		exit(EXIT_FAILURE);
 	}
