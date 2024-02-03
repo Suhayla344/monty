@@ -3,7 +3,7 @@
 
 /**
  * push - this function pushes element to the  stack
- * @element: this is an element
+ * @head: this is an element
  * @line: this is error line
  */
 
@@ -46,7 +46,7 @@ void push(stack_t **head, unsigned int line)
 
 /**
  * _pall - this function prints existing values in stack
- * @element: this is head of linked list
+ * @head: this is head of linked list
  * @line: line number
  * Return: no return
  */
