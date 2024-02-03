@@ -20,9 +20,9 @@ void _swap(stack_t **head, unsigned int cont)
 	}
 	if (l < 2)
 	{
-		fprintf(2, "L%d: can't swap, stack", cont);
+		fprintf(stderr, "L%d: can't swap, stack", cont);
 		fclose(globv.pf);
-		free(globv.cont);
+		free(globv.counter);
 		free_globv(*head);
 		exit(EXIT_FAILURE);
 	}

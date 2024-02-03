@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * _pint - print tha last element
@@ -16,5 +16,5 @@ void _pint(stack_t **head, unsigned int count)
 		free_globv(*head);
 		exit(EXIT_FAILURE);
 	}
-	print("%d\n", (*head)->n);
+	printf("%d\n", (*head)->n);
 }
