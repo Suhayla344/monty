@@ -63,7 +63,7 @@ typedef struct list
 } list_t;
 
 /*global value*/
-extern list_t globv;
+extern list_t bus;
 
 /*func_monty_p1.c*/
 void _push(stack_t **element, unsigned int line);
