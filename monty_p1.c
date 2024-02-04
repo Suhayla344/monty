@@ -1,13 +1,13 @@
 #include "monty.h"
 #include <stdio.h>
-
+extern list_t bus;
 /**
- * push - this function pushes element to the  stack
+ * _push - this function pushes element to the  stack
  * @head: this is an element
  * @line: this is error line
  */
 
-void push(stack_t **head, unsigned int line)
+void _push(stack_t **head, unsigned int line)
 {
 	int n, i = 0, f	= 0;
 
