@@ -1,5 +1,5 @@
-#ifndef _MONTY_H_
-#define _MONTY_H_
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -57,7 +57,6 @@ typedef struct list
 	int info;
 	unsigned int counter;
 	char *arg;
-	stack_t *head;
 	FILE *pf;
 	char *buff;
 } list_t;
@@ -66,11 +65,11 @@ typedef struct list
 extern list_t bus;
 
 /*func_monty_p1.c*/
-void _push(stack_t **element, unsigned int line);
-void _pall(stack_t **element, unsigned int line);
+void _push(stack_t **head, unsigned int line);
+void _pall(stack_t **head, unsigned int line);
 void free_globv(stack_t *head);
-stack_t *add_dnodeint(stack_t **head, const int y);
-stack_t *add_dnodeint_end(stack_t **head, const int y);
+stack_t *add_dnodeint(stack_t **head, const int n);
+stack_t *add_dnodeint_end(stack_t **head, const int n);
 /*swap.c*/
 void _swap(stack_t **head, unsigned int cont);
 /*monty_p2*/
