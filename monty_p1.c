@@ -11,20 +11,20 @@ void push(stack_t **head, unsigned int line)
 {
 	int n, i = 0, f	= 0;
 
-	if (globv.arg)
+	if (bus.arg)
 	{
-		if (globv.arg[0] == '-')
+		if (bus.arg[0] == '-')
 			i++;
-		for (; globv.arg[0] != '\0'; i++)
+		for (; bus.arg[0] != '\0'; i++)
 		{
-			if (globv.arg[i] > 57 || globv.arg[i] < 48)
+			if (bus.arg[i] > 57 || bus.arg[i] < 48)
 				f = 1;
 		}
 		if (f == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line);
-			fclose(globv.pf);
-			free(globv.buff);
+			fclose(bus.pf);
+			free(bus.buff);
 			free_globv(*head);
 			exit(EXIT_FAILURE);
 		}
@@ -32,13 +32,13 @@ void push(stack_t **head, unsigned int line)
 	else
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line);
-		fclose(globv.pf);
-		free(globv.buff);
+		fclose(bus.pf);
+		free(bus.buff);
 		free_globv(*head);
 		exit(EXIT_FAILURE);
 	}
-	n = atoi(globv.arg);
-	if (globv.info == 0)
+	n = atoi(bus.arg);
+	if (bus.info == 0)
 		add_dnodeint(head, n);
 	else
 		add_dnodeint_end(head, n);

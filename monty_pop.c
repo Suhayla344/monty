@@ -12,8 +12,8 @@ void _pop(stack_t **head, unsigned int line)
 	if (*head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
-		fclose(globv.pf);
-		free(globv.buff);
+		fclose(bus.pf);
+		free(bus.buff);
 		free_globv(*head);
 		exit(EXIT_FAILURE);
 	}
