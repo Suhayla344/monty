@@ -33,35 +33,26 @@ void _swap(stack_t **head, unsigned int cont)
 }
 
 /**
- * add_dnodeint - add a note at the begining of the
- * @head: frist position of linked list
- * @n: data to store
- * Return: a doubly linked list
+ * add_dnodeint - add nod
+ * @head: head of struct stack_t
+ * @n: new number
+ * Return: no return
 */
-stack_t *add_dnodeint(stack_t **head, const int n)
-{
-	stack_t *ptr;
 
-	if (head == NULL)
-		return (NULL);
-	ptr = malloc(sizeof(stack_t));
-	if (!ptr)
+void add_dnodeint(stack_t **head, int n)
+{
+	stack_t *new, *indx;
+
+	indx = *head;
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free_globv();
-		exit(EXIT_FAILURE);
+		printf("Error\n");
+		exit(0);
 	}
-	ptr->n = n;
-	if (*head == NULL)
-	{
-		ptr->next = *head;
-		ptr->prev = NULL;
-		*head = ptr;
-		return (*head);
-	}
-	(*head)->prev = ptr;
-	ptr->next = (*head);
-	ptr->prev = NULL;
-	*head = ptr;
-	return (*head);
+	if (indx)
+		indx->prev = new;
+	new->n = n;
+	new->next = *head;
+	new->prev = NULL;
 }

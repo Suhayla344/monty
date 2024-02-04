@@ -68,10 +68,10 @@ extern list_t bus;
 void _push(stack_t **head, unsigned int line);
 void _pall(stack_t **head, unsigned int line);
 void free_globv(stack_t *head);
-stack_t *add_dnodeint(stack_t **head, const int n);
-stack_t *add_dnodeint_end(stack_t **head, const int n);
+void add_dnodeint_end(stack_t **head, int n)
 /*swap.c*/
 void _swap(stack_t **head, unsigned int cont);
+void add_dnodeint(stack_t **head, int n);
 /*monty_p2*/
 void _pint(stack_t **head, unsigned int count);
 /*monty_add.c*/
