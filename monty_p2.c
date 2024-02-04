@@ -10,9 +10,9 @@ void _pint(stack_t **head, unsigned int count)
 {
 	if (*head == NULL)
 	{
-		fprintf(2, "L%u: can't pint, stack empty", counter);
-		fclose(list_t.pf);
-		free(list_t.counter);
+		fprintf(stderr, "L%u: can't pint, stack empty", count);
+		fclose(bus.pf);
+		free(bus.buff);
 		free_globv(*head);
 		exit(EXIT_FAILURE);
 	}
