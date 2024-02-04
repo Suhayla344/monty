@@ -71,8 +71,15 @@ void _pall(stack_t **element, unsigned int line);
 void free_globv(stack_t *head);
 stack_t *add_dnodeint(stack_t **head, const int y);
 stack_t *add_dnodeint_end(stack_t **head, const int y);
-/*monty_s.c*/
+/*swap.c*/
 void _swap(stack_t **head, unsigned int cont);
 /*monty_p2*/
 void _pint(stack_t **head, unsigned int count);
+/*monty_add.c*/
+void _add(stack_t **head, unsigned int line);
+/*monty_pop.c*/
+void _pop(stack_t **head, unsigned int line);
+/*nup.c*/
+void _nop(stack_t **head, unsigned int cont);
+
 #endif
